@@ -52,7 +52,11 @@ VARNISH_SECRET_FILE=<%= scope.lookupvar('varnish::secret_file') %>
 VARNISH_TTL=<%= scope.lookupvar('varnish::ttl') %>
 <% end -%>
 
-<% if scope.lookupvar('varnish::storage_size') != ''and
+<% if scope.lookupvar('varnish::storage_type') == 'malloc' and
+      scope.lookupvar('varnish::storage_size') != '' -%>
+VARNISH_STORAGE="malloc,${VARNISH_STORAGE_SIZE}"
+
+<% elif scope.lookupvar('varnish::storage_size') != ''and
       scope.lookupvar('varnish::storage_file') != '' -%>
 VARNISH_STORAGE_SIZE=<%= scope.lookupvar('varnish::storage_size') %>
 VARNISH_STORAGE_FILE=<%= scope.lookupvar('varnish::storage_file') %>

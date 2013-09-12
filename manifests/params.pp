@@ -96,6 +96,7 @@ class varnish::params {
   $secret = ''
   $secret_file = '/etc/varnish/secret'
   $ttl = '120'
+  $storage_type = 'file'
   $storage_size = '1G'
   $storage_file = '/var/lib/varnish/$INSTANCE/varnish_storage.bin'
   $vcl_template = ''
