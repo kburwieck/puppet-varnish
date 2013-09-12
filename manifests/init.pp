@@ -93,6 +93,10 @@
 #   Default TTL used when the backend does not specify on, in seconds
 #   Default: 120
 #
+# [*storage_type*]
+#   Cache type: file or malloc
+#   Default: file
+#
 # [*storage_size*]
 #   Cache file size: in bytes, optionally using k / M / G / T suffix,
 #   or in percentage of available disk space using the % suffix.
@@ -332,6 +336,7 @@ class varnish (
   $secret               = params_lookup( 'secret' ),
   $secret_file          = params_lookup( 'secret_file' ),
   $ttl                  = params_lookup( 'ttl' ),
+  $storage_type         = params_lookup( 'storage_type' ),
   $storage_size         = params_lookup( 'storage_size' ),
   $storage_file         = params_lookup( 'storage_file' ),
   $source               = params_lookup( 'source' ),
